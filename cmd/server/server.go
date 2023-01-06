@@ -8,10 +8,12 @@ import (
 
 func main() {
 	engine := gin.Default()
-	engine.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "hello world",
-		})
-	})
+	engine.GET("/", Index)
 	engine.Run(":3000")
+}
+
+func Index(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"message": "hello world",
+	})
 }
